@@ -1,0 +1,16 @@
+rbac:
+  users:
+    - name: test3
+      permissions:
+        - topic: 
+            - name: "test4"
+              patternType: "literal"
+              permission: 
+                - read
+                - describe
+                - write
+            - name: "test5"
+              patternType: "literal"
+              permission: 
+                - read
+                - describe

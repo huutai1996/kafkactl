@@ -1,0 +1,10 @@
+rbac:
+  users:
+    - name: test9
+      permissions:
+        - cluster: 
+            - name: test9
+              patternType: "literal"
+              permission: 
+                - create
+                - describe

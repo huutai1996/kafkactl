@@ -1,0 +1,19 @@
+rbac:
+  users:
+    - name: test3
+      permissions:
+        - topic: 
+            - name: "test4"
+              patternType: "literal"
+              permission: 
+                - read
+                - describe
+                - write
+                - create
+                - delete
+                - alter
+                - alter_config
+                - list
+                - describe_config
+                - cluster_action
+                - idempotent_write

@@ -1,0 +1,36 @@
+rbac:
+  users:
+    - name: test2
+      permissions:
+        - topic: 
+            - name: ".*"
+              patternType: "prefixed"
+              permission: 
+                - read
+                - describe
+                - write
+            - name: "test3"
+              patternType: "literal"
+              permission: 
+                - read
+                - describe
+        - group:
+            - name: "infra"
+              permission: 
+                - read
+                - describe
+                - describe
+    - name: test3
+      permissions:
+        - topic: 
+            - name: "test3"
+              patternType: "prefixed1"
+              permission: 
+                - read
+                - describe
+                - write
+            - name: "test4"
+              patternType: "literal"
+              permission: 
+                - read
+                - describe         

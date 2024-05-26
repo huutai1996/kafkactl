@@ -1,0 +1,104 @@
+{
+    "type": "object",
+    "properties": {
+        "rbac": {
+            "type": "object",
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "permissions": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "topic": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {"type": "string"},
+                                                    "patternType": {"type": "string"},
+                                                    "permission": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string",
+                                                            "enum": ["read", "write", "alter"]
+                                                        }
+                                                    }
+                                                },
+                                                "required": ["name", "patternType", "permission"]
+                                            }
+                                        },
+                                        "group": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {"type": "string"},
+                                                    "permission": {
+                                                        "type": "array",
+                                                        "items": {"type": "string"}
+                                                    }
+                                                },
+                                                "required": ["name", "permission"]
+                                            }
+                                        },
+                                        "cluster": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {"type": "string"},
+                                                    "permission": {
+                                                        "type": "array",
+                                                        "items": {"type": "string"}
+                                                    }
+                                                },
+                                                "required": ["name", "permission", "patternType"]
+                                            }
+                                        },
+                                        "transaction": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {"type": "string"},
+                                                    "permission": {
+                                                        "type": "array",
+                                                        "items": {"type": "string"}
+                                                    }
+                                                },
+                                                "required": ["name", "permission", "patternType"]
+                                            }
+                                        }
+                                    },
+                                    "oneOf": [
+                                        {
+                                            "required": ["topic"]
+                                        },
+                                        {
+                                            "required": ["group"]
+                                        },
+                                        {
+                                            "required": ["cluster"]
+                                        },
+                                        {
+                                            "required": ["transaction"]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "required": ["name", "permissions"]
+                    }
+                }
+            },
+            "required": ["users"]
+        }
+    },
+    "required": ["rbac"]
+}

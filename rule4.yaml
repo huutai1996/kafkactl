@@ -1,0 +1,15 @@
+rbac:
+  users:
+    - name: test9
+      permissions:
+        - topic: 
+            - name: "test8"
+              patternType: "prefixed"
+              permission: 
+
+        - cluster1: 
+            - name: "test8"
+              patternType: "literal"
+              permission: 
+                - create
+

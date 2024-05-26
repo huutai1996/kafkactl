@@ -1,0 +1,10 @@
+rbac:
+  users:
+    - name: test9
+      permissions:
+        - transaction: 
+            - name: "test9"
+              patternType: "literal"
+              permission: 
+                - read
+                - describe
